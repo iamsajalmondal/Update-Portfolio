@@ -1,0 +1,1327 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family:sans-serif;
+}
+
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+:root {
+    --bg-color: #081b29;
+    --main-color: #00abf0;
+    --text-color: #ededed;
+    --second-text-color: #112e42;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 9%;
+    padding: 2rem 9%;
+    background: var(--bg-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    transition: .3s;
+}
+
+.header.sticky {
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.logo-img {
+    width: 60px; /* Set desired width */
+    height: 50px; /* Make height equal to width for circle */
+    border-radius: 50%; /* Make the image circular */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 9); /* Initial shadow */
+    animation: moveAndShadow 4s infinite ease-in-out; /* Apply animation */
+}
+
+@keyframes moveAndShadow {
+    0% {
+        transform: translateX(0) translateY(0);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+    25% {
+        transform: translateX(-5px) translateY(-5px);
+        box-shadow: 0 0 15px rgba(255, 0, 0, 0.7); /* Red shadow */
+    }
+    50% {
+        transform: translateX(5px) translateY(5px);
+        box-shadow: 0 0 20px rgba(0, 255, 0, 0.7); /* Green shadow */
+    }
+    75% {
+        transform: translateX(-5px) translateY(5px);
+        box-shadow: 0 0 15px rgba(0, 0, 255, 0.7); /* Blue shadow */
+    }
+    100% {
+        transform: translateX(0) translateY(0);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    margin-left: auto; /* Adjust alignment to the right */
+}
+
+.navbar a {
+    font-size: 1rem;
+    color: var(--text-color);
+    font-weight: 500;
+    margin-left: 3.5rem; /* Adjust spacing between links */
+    transition: .3s;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    color: var(--main-color);
+}
+
+#menu-icon {
+    font-size: 2rem;
+    color: var(--text-color);
+    cursor: pointer;
+    display: block; /* Ensure menu icon is visible */
+}
+
+/* Home section styles */
+section {
+    min-height: 100vh;
+    padding: 10rem 9% 2rem;
+}
+
+.home {
+    display: flex;
+    align-items: center;
+    padding: 0 9%;
+    background: url('5.jpeg') no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.home-content {
+    max-width: 50rem;
+    margin-top: 7rem;
+}
+
+.home-content h2 {
+    font-size: 3rem;
+    font-weight: 400;
+    line-height: 1.3;
+    margin-top: 0rem;
+}
+
+.home-content h2 span{
+    color: var(--text-color);
+}
+
+.home-content .text-animate {
+    position: relative;
+    width: 20rem;
+}
+
+.home-content .text-animate h3 {
+    font-size: 2rem;
+    font-weight: 200;
+    color: transparent;
+    -webkit-text-stroke: 0.7px var(--main-color); /* Adds a stroke to the text */
+    background-image: linear-gradient(var(--main-color), var(--main-color)); /* Creates a gradient background */
+    background-repeat: no-repeat;
+    -webkit-background-clip: text; /* Clips the background to the text */
+    background-clip: text; /* For non-WebKit browsers */
+    background-position: 0 0;
+    animation: homeBgText 4s linear infinite; /* Applies animation to the text */
+    animation-delay: 2s; /* Delays the start of the animation */
+    display: inline-block; /* Ensure the element respects the text size */
+    position: relative; /* Ensure the position context for pseudo-elements */
+}
+
+
+.home-content p {
+    font-size: 1.4rem;
+    margin: 2rem 0 4rem;
+}
+.btn-box {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 30rem; /* Adjust as needed */
+    height: 3rem; /* Adjust as needed */
+    margin-top: 2rem;
+}
+
+.btn {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 10rem; /* Minimum width */
+    height: 100%;
+    background: var(--main-color);
+    border: .2rem solid transparent;
+    border-radius: .8rem; /* Adjust border radius as needed */
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.1rem;
+    color: whitesmoke;
+    overflow: hidden;
+    transition: all 0.3s ease; /* Improved transition */
+    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Add text-shadow */
+    z-index: 1; /* Ensure text is above pseudo-element */
+    cursor: pointer; /* Change cursor to pointer */
+    white-space: nowrap; /* Prevent text from wrapping */
+}
+
+.btn:hover {
+    color: var(--text-color);
+    border-color: var(--main-color);
+    text-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+}
+
+.btn:nth-child(2) {
+    background: transparent;
+    color: whitesmoke;
+    border-color: var(--main-color);
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: var(--bg-color);
+    z-index: -1; /* Behind the button */
+    transition: all 0.3s ease; /* Improved transition */
+}
+
+.btn:hover::before {
+    width: 100%;
+}
+
+.btn:hover::before,
+.btn::before {
+    z-index: -2; /* Ensure pseudo-element is behind button text */
+}
+
+/* Styles for downloading state */
+.btn.downloading {
+    background: transparent;
+    color: whitesmoke;
+    border-color: var(--main-color);
+    cursor: default;
+    pointer-events: none; /* Disable interaction during download */
+    min-width: 12rem; /* Increase width during downloading state */
+}
+
+.btn.downloading .progress-percentage {
+    display: inline-block;
+    margin-left: 0.5rem; /* Adjust as needed */
+    animation: progressAnimation 3s linear forwards;
+}
+
+.progress-percentage {
+    display: none;
+}
+
+@keyframes progressAnimation {
+    0% {
+        content: "0%";
+    }
+    100% {
+        content: "100%";
+    }
+}
+
+.home-sci {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1rem;
+    z-index: 2; /* Ensure this is above the image */
+}
+
+.home-sci a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: 0.2rem solid var(--main-color);
+    border-radius: 50%;
+    font-size: 20px;
+    color: var(--main-color);
+    transition: background 0.5s, color 0.3s;
+    position: relative; /* Added position relative */
+    overflow: hidden; /* Added overflow hidden */
+}
+
+.home-sci a:hover {
+    color: var(--bg-color);
+}
+
+.home-sci a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: var(--main-color);
+    z-index: -1;
+    transition: 0.5s;
+}
+
+.home-sci a:hover::before {
+    width: 100%;
+    transition: 0.5s;
+}
+
+.home-imgHover {
+    position: absolute;
+    top: 0; 
+    right: 0;
+    width: 45%;
+    height: 100%;
+    background: transparent;
+    border: transparent;
+    z-index: 1; /* Ensure this is higher than other overlapping elements */
+    transition: 1s;
+}
+/* About section styles */
+.about {
+    justify-content: center;
+    padding-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: url('Designer\ \(8\).png');
+    background-size: cover;
+    animation: fadeIn 1s ease-in-out, backgroundMove 20s infinite alternate; /* Added backgroundMove animation */
+}
+
+@keyframes backgroundMove {
+    0% {
+        background-position: 50% 50%;
+        background-size: 120%; /* Start zoomed in */
+    }
+    50% {
+        background-position: 55% 55%;
+        background-size: 105%; /* Zoom out */
+    }
+    100% {
+        background-position: 50% 50%;
+        background-size: 120%; /* Return to zoomed in */
+    }
+}
+
+.heading {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+    background-color: var(--background-color);
+    padding: 1rem 1rem;
+    border-radius: 0.5rem;
+    animation: fadeInDown 1s ease; /* Fade in down animation */
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 40px rgba(255, 255, 255, 0.8), inset 0 0 40px rgba(255, 255, 255, 0.5);
+}
+
+.about-container {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.about-content {
+    background: linear-gradient(135deg, var(--bg-color), var(--main-color-light));
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: 5rem 5rem var(--text-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    animation: slideUp 0.5s ease-in-out;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 2rem; 
+}
+
+.about-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 150%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: skewX(-25deg);
+    transition: left 0.7s ease;
+}
+
+.about-content:hover::before {
+    left: 100%;
+}
+
+.about-content:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0.2rem 0.4rem var(--main-color);
+}
+
+.about-img {
+    position: relative;
+    width: 20rem;
+    height: 15rem;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Soft shadow */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: floatAndShadow 5s ease-in-out infinite; /* Combined floating and shadow animation */
+}
+
+.about-img img {
+    width: 100%; /* Adjusted to fill the container */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 50%;
+    border: 10rem transparent;
+}
+
+@keyframes floatAndShadow {
+    0% {
+        transform: translate(0, 0);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 9);
+    }
+    25% {
+        transform: translate(-10px, -5px);
+        box-shadow: 0 8px 20px rgba(255, 0, 0, 5); /* Red shadow */
+    }
+    50% {
+        transform: translate(10px, 5px);
+        box-shadow: 0 8px 24px rgba(0, 255, 0, 5); /* Green shadow */
+    }
+    75% {
+        transform: translate(-5px, 10px);
+        box-shadow: 0 8px 20px rgba(0, 0, 255, 5); /* Blue shadow */
+    }
+    100% {
+        transform: translate(0, 0);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 9);
+    }
+}
+
+.circle-spin {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 15rem;
+    height: 15rem;
+    border-radius: 50%;
+    border-top: 0.2rem solid var(--second-text-color);
+    border-bottom: 0.2rem solid var(--second-text-color);
+    border-left: 0.2rem solid var(--main-color);
+    border-right: 0.2rem solid var(--main-color);
+    animation: aboutSpinner 8s linear infinite;
+}
+
+@keyframes aboutSpinner {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.about-content-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.about-content {
+    padding: 2rem;
+    background-color: var(--bg-color);
+    border-radius: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 2);
+    width: 100%;
+}
+
+.about-content h3 {
+    font-size: 1.4rem;
+    margin-top: 0.5rem;
+}
+
+.about-content p {
+    font-size: 1rem;
+    margin: 0.5rem 0 1.5rem;
+}
+
+.btn-box.btns {
+    display: flex;
+    justify-content: center;
+}
+
+.btn-box.btns a {
+    margin: 0 1rem;
+    padding: 0.8rem 1.5rem;
+    font-size:1rem;
+    color: var(--text-color);
+    background-color: var(--main-color);
+    border-radius: 0.5rem;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 2);
+    text-shadow: 0 4px 6px rgba(0, 0, 0,2);
+}
+
+.btn-box.btns a::before {
+    background: var(--second-text-color);
+}
+
+.more-text {
+    display: none;
+}
+
+.read-more-btn {
+    display: inline-block;
+    padding: 0.4rem 0.8rem;
+    color: var(--text-color);
+    background: var(--main-color);
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background 0.3s ease;
+}
+
+.read-more-btn:hover {
+    background: var(--main-color-dark);
+}
+
+/* Spinner Animation */
+@keyframes aboutSpinner {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+/* Keyframe Animations */
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+/* Education and Experience section styles */
+.education {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 4rem;
+    background: url('3.jpeg') no-repeat;
+    background-size: cover;
+}
+
+@keyframes backgroundBack {
+    0% {
+        background-size: 120%; /* Start zoomed in */
+    }
+    50% {
+        background-size: 105%; /* Zoom out */
+    }
+    100% {
+        background-size: 120%; /* Return to zoomed in */
+    }
+}
+.education-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+    max-width: 1200px; /* Adjust as needed */
+}
+
+.education-box {
+    width: 100%;
+    position: relative;
+    margin-bottom: 2rem;
+    background-color: var(--second-text-color); /* Background color of the box */
+    border-radius: 1rem; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    overflow: hidden; /* Ensure shadow is applied properly */
+    transition: transform 1s ease-in-out, box-shadow 0.3s ease-in-out, background-color 1s ease-in-out; /* Animations */
+}
+
+.education-box:hover {
+    transform: scale(1.02); /* Scale up on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Increased shadow on hover */
+    background-color: blueviolet; /* Change background color on hover */
+}
+
+.education-content {
+    padding: 1.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.education-content::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+    z-index: -1;
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.3s ease-in-out; /* Fade-in animation */
+}
+
+.education-box:hover .education-content::before {
+    opacity: 1; /* Show overlay on hover */
+}
+
+.education-content .year {
+    font-size: 1.2rem;
+    padding-bottom: 0.5rem;
+    color: var(--main-color);
+}
+
+.education-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.education-content p {
+    font-size: 1rem;
+    padding-top: 0.5rem;
+}
+
+
+.skills {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: url('Designer\ \(8\).png') no-repeat;
+    background-size: cover;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+.skills .skills-row {
+    display: flex;
+    gap: 2rem;
+}
+
+.skills .skills-column {
+    flex: 1;
+}
+
+.skills .title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    
+}
+
+.skills-box .skills-content {
+    position: relative;
+    border: transparent; /* Initial border color */
+    border-radius: 10px;
+    padding: 1rem;
+    overflow: hidden;
+    z-index: 1;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 6); /* Add box shadow */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.skills-box .skills-content::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Start with full width */
+    height: 100%;
+    background: linear-gradient(to left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 5)); 
+    z-index: -1;
+    transition: width 3s ease;
+    opacity: 0; /* Initially hidden */
+}
+
+.skills-box .skills-content:hover::before {
+    width: 0; /* Reverse the gradient width on hover */
+    opacity: 1; /* Show gradient overlay on hover */
+}
+
+.skills-box .skills-content:hover {
+    border-color: transparent; /* Remove border color on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 4); /* Enhance box shadow on hover */
+    transform: scale(1.05); /* Scale up on hover */
+}
+
+.skills-content .progress {
+    margin-bottom: 1rem;
+}
+
+.skills-content .progress .bar {
+    background:whitesmoke;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 20px;
+}
+
+.skills-content .progress .bar span {
+    display: block;
+    height: 100%;
+    background: var(--main-color);
+    border-radius: 10px;
+    width: 0; /* Start with 0 width */
+    transition: width 0.5s ease;
+}
+
+.skills-content .progress .bar span:hover {
+    width: 100%; /* Expand width on hover */
+}
+
+
+
+
+.projects {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 4rem;
+    background-image: url("alien.png");
+    /* Adjust background image and padding as needed */
+}
+
+.services-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow boxes to wrap to the next line */
+    gap: 1rem; /* Adjust the gap between boxes */
+    justify-content: center; /* Center boxes horizontally */
+}
+
+.services-box {
+    width: calc(33.33% - 2rem); /* Adjust width as needed */
+    max-width: 20rem; /* Maximum width for each box */
+    background: linear-gradient(135deg, var(--bg-color), var(--main-color-light));
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: 0.4rem 0.4rem var(--second-text-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    animation: slideUp 0.5s ease-in-out;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 2rem; /* Space between each box */
+}
+
+.services-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 150%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: skewX(-25deg);
+    transition: left 0.7s ease;
+}
+
+.services-box:hover::before {
+    left: 100%;
+}
+
+.services-box:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0.1rem 0.5rem var(--second-text-color);
+}
+
+.services-box .icons {
+    display: flex;
+    gap: 0.5rem; /* Space between icons */
+}
+
+.services-box .icons i {
+    font-size: 3rem;
+    color: var(--main-color);
+}
+
+.services-box h3 {
+    font-size: 1.4rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.services-box p {
+    font-size: 1rem;
+    margin: 0.5rem 0 1.5rem;
+}
+
+.services-box .heading-with-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* Space between heading and link */
+}
+
+.services-box .heading-with-link a {
+    font-size: 2rem; /* Adjust icon size if needed */
+    color: var(--text-color);
+    text-decoration: none; /* Remove underline from link */
+}
+
+.services-box .btn {
+    display: inline-block;
+    padding: 0.4rem 0.8rem;
+    color: #fff;
+    background: var(--main-color);
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: background 0.3s ease, transform 0.3s ease;
+    text-align: center; /* Center text horizontally */
+    display: flex;
+    justify-content: center; /* Center button horizontally */
+    align-items: center; /* Center button vertically */
+    height: 2.5rem; /* Set height to align vertically */
+    width: 100%; /* Make button take full width */
+    margin-top: auto; /* Push button to the bottom */
+}
+
+.services-box .btn:hover {
+    background: var(--main-color-dark);
+}
+
+.more-text {
+    display: none; /* Initially hide extended description text */
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+.certificates {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 4rem;
+    background: url('2.jpeg') no-repeat;
+    background-size: cover;
+}
+
+.certificate-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.certificate {
+    width: 250px; /* Adjust dimensions as needed */
+    height: 250px; /* Adjust dimensions as needed */
+    perspective: 1000px; /* Depth perspective */
+    margin: 20px;
+    cursor: pointer;
+}
+
+.certificate-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+    border-radius: 8px;
+}
+
+.certificate:hover .certificate-inner {
+    transform: rotateY(180deg);
+}
+
+.certificate-front,
+.certificate-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.certificate-front {
+    background-color: #f0f0f0;
+    overflow: hidden;
+}
+
+.certificate-back {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: rotateY(180deg);
+    overflow: hidden;
+    top: 1px;
+}
+
+.certificate img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: opacity 0.4s ease-in-out;
+}
+
+.certificate-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.3);
+    text-align: center;
+}
+
+.certificate-text h3 {
+    margin: 0;
+    padding: 0;
+    color: #081b29;
+    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    font-size: 14px;
+}
+
+.certificate-text p {
+    margin: 5px 0 0;
+    padding: 0;
+    font-size: 12px;
+    color:var(--bg-color);
+}
+
+/* Placeholder color */
+.contact form .input-box .input-field input::placeholder,
+.contact form .textarea-field textarea::placeholder {
+    color: var(--bg-color); /* Set placeholder text color */
+}
+
+.contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 4rem;
+    background-size: cover;
+    background-image: url("Designer%20%2813%29.png");
+    padding-bottom: 4rem;
+}
+
+.contact form {
+    max-width: 50rem;
+    margin: 0 auto;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.5); /* Background color with transparency */
+    padding: 2rem;
+    border-radius: 1.5rem; /* Rounded corners */
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2); /* Soft shadow */
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+
+/* Hover effect */
+.contact form:hover {
+    box-shadow: 0 0 2rem rgba(0, 0, 0, 0.3); /* Increased shadow on hover */
+    transform: scale(1.02); /* Scale up on hover */
+}
+
+/* Input box styling */
+.contact form .input-box {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem; /* Space between inputs and textarea */
+}
+
+.contact form .input-box .input-field {
+    width: calc(50% - 0.5rem); /* Adjust width for two columns */
+}
+
+/* Input and textarea styling */
+.contact form .input-box .input-field input,
+.contact form .textarea-field textarea {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+    color: var(--text-color);
+    background: linear-gradient(to right, #c4e17f, #1ae2db); /* Gradient background */
+    border-radius: 0.9rem; /* Rounded corners */
+    border: none;
+    box-shadow: 0 0 0.3rem rgba(0, 0, 0, 0.1); /* Soft shadow */
+    transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+/* Placeholder styling */
+.contact form .input-box .input-field input::placeholder,
+.contact form .textarea-field textarea::placeholder {
+    color: var(--bg-color); /* Placeholder text color */
+}
+
+/* Focus effect */
+.contact form .input-box .input-field input:focus,
+.contact form .textarea-field textarea:focus {
+    outline: none;
+    background: linear-gradient(to right, #6fb1fc, #4364f7); /* Updated gradient on focus */
+    transform: scale(1.02); /* Scale effect */
+}
+
+/* Textarea field styling */
+.contact form .textarea-field {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+    color: var(--text-color);
+    background: linear-gradient(to right, #c4e17f, #1ae2db); /* Gradient background */
+    border-radius: 0.9rem; /* Rounded corners */
+    box-shadow: 0 0 0.3rem rgba(0, 0, 0, 0.1); /* Soft shadow */
+    transition: .5s;
+}
+
+.contact form .textarea-field textarea {
+    width: 100%;
+    resize: none;
+    border: none;
+    background: transparent;
+}
+
+/* Button box styling */
+.btn-box-btns {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.btn-box-btns button {
+    padding: 0.7rem 2rem;
+    background: var(--main-color);
+    color: var(--bg-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.3s;
+}
+
+.btn-box-btns button:hover {
+    background: darken(var(--main-color), 10%);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.1rem; /* Decreased padding */
+    background: var(--second-text-color);
+    flex-wrap: wrap;
+    background-image: url(as.png);
+    animation: backgroundChange 10s infinite alternate; /* Background animation */
+}
+
+@keyframes backgroundChange {
+    0% {
+        background-size: 100%;
+    }
+    100% {
+        background-size: 110%;
+    }
+}
+
+.footer-iconTop {
+    margin-left: auto;
+}
+
+.footer-iconTop a {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.1rem; /* Decreased padding */
+    background: var(--main-color);
+    border: 0.2rem solid var(--main-color);
+    border-radius: 0.6rem;
+    z-index: 1;
+    overflow: hidden;
+    transition: background 0.5s, color 0.5s, transform 0.3s; /* Added transform transition */
+}
+
+.footer-iconTop a::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: var(--bg-color);
+    z-index: -1;
+    transition: width 0.5s; /* Changed to animate width */
+}
+
+.footer-iconTop a:hover::before {
+    width: 100%;
+}
+
+.footer-iconTop a:hover {
+    transform: scale(1.1); /* Added scale transform on hover */
+}
+
+.footer-iconTop a i {
+    font-size: 1.5rem;
+    color: var(--bg-color);
+    transition: color 0.5s;
+}
+
+.footer-iconTop a:hover i {
+    color: var(--main-color);
+}
+
+.animate {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    z-index: 98;
+}
+
+
+.logo .animate,
+.navbar .animate,
+.home.show-animate .animate {
+    animation-name: showRight;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+}
+
+.logo .animate {
+    animation-delay: calc(0.3s * var(--i));
+}
+
+.navbar .animate {
+    animation-delay: calc(0.3s * var(--i));
+}
+
+.home.show-animate .animate {
+    animation-delay: calc(0.3s * var(--i));
+}
+
+@keyframes showRight {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+/* Adjusting font size for smaller screens */
+@media (max-width: 1200px) {
+    html {
+        font-size: 55%;
+    }
+}
+
+/* Adjusting font size for smaller screens */
+@media (max-width: 1200px) {
+    html {
+        font-size: 55%;
+    }
+}
+
+/* Padding adjustment for the header */
+@media (max-width: 991px) {
+    .header {
+        padding: 2rem 4%;
+    }
+}
+
+/* Adding padding to sections */
+section {
+    padding: 0 4%;
+}
+
+/* Adding padding to the footer */
+.footer {
+    padding: 2rem 4%;
+}
+
+/* Changing header background color for smaller screens */
+@media (max-width: 768px) {
+    .header {
+        background: var(--main-color);
+    }
+}
+
+/* Styling for the menu icon */
+#menu-icon {
+    display: block;
+}
+
+/* Styling for the navbar */
+.navbar {
+    white-space: nowrap; /* Prevents wrapping onto the next line */
+    overflow-x: auto; /* Allows horizontal scrolling if necessary */
+    -webkit-overflow-scrolling: touch; /* Enables smooth scrolling on iOS devices */
+    position: absolute;
+    top: 100%;
+    left: -100%; /* Start off-screen */
+    width: 100%;
+    padding: .1rem 4%;
+    background: var(--bg-color);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 5); 
+    z-index: 1; 
+    transition: left 0.3s ease; 
+    display: flex;
+    justify-content: space-evenly;
+}
+
+/* Navbar active state */
+.navbar.activate {
+    left: 0; /* Bring on-screen */
+}
+
+.navbar.activate-nav{
+    position: absolute;
+    top: 0;
+    left: -100;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-color) ;
+    border-top: .1rem solid rgba(0,0,0,.2);
+    z-index: -1;
+    transition: .25s ease;
+    transition-delay: 0s;
+
+}
+.navbar.navbar.activate-nav{
+    left: 0;
+    transition-delay: .25s;
+}
+/* Styling for the navbar links */
+.navbar a {
+    display: block;
+    font-size: 1rem;
+    margin: .5rem 0;
+}
+
+
+/* Media query for screens smaller than 520px */
+@media (max-width: 520px) {
+    html {
+        font-size: 50%;
+    }
+
+    .home-content h1 {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .home-sci {
+        width: 160px;
+    }
+
+    .home-sci a {
+        width: 38px;
+        height: 38px;
+    }
+}
+
+/* Media query for screens smaller than 462px */
+@media (max-width: 462px) {
+    .home-content h1 {
+        font-size: 5.2rem;
+    }
+
+    .education {
+        padding: 10rem 4% 5rem 5%; /* Adjusted padding */
+    }
+
+    .contact form .input-box .input-field { /* Corrected 'from' to 'form' */
+        width: 100%;
+    }
+}
+
+@keyframes homeBgText {
+    0%, 10%, 100% {
+        background-position: -33rem 0;
+    }
+    65%,
+    85% {
+        background-position: 0 0;
+    }
+}
+
+@keyframes showRight {
+    100% {
+        width: 0;
+
+    }
+    
+}
+
+
